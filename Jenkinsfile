@@ -12,7 +12,7 @@ pipeline {
         NEXUS_GRP_REPO = 'vpro-maven-group'
         NEXUS_USER = 'admin'
         NEXUS_PASS = 'pinspire@1234'
-        NEXUS_IP = '10.0.0.152'
+        NEXUSIP = '10.0.0.152'
         NEXUSPORT = '8081'
         NEXUS_LOGIN = 'nexuslogin'
     }
