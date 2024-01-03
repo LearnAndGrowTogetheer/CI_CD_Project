@@ -104,7 +104,7 @@ pipeline {
         post{
             always {
                 echo 'Slack Notifications'
-                slackSend channel: ' #jenkin-cicd',
+                slackSend channel: '  #pipeline-notification',
                         color: COLOR_MAP[currentBuild.currentResult],
                         message: "*${currentBuild.currentResult}:* Job ${env.JOB_NAME} build ${env.BUILD_NUMBER} \n More info at: ${env.BUILD_URL}"
             }
