@@ -114,7 +114,7 @@
             stage('Upload App Image to ECR') {
                 steps {
                     script {
-                        docker.withRegistry( vprofileRegistry, registryCredentials ) {
+                        docker.withRegistry( vprofileRegistry, registryCredential ) {
                             dockerImage.push("$BUILD_NUMBER")
                             dockerImage.push('latest')
                         }
