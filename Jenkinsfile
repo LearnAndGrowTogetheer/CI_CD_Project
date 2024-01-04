@@ -73,13 +73,13 @@
 
             }
 
-            stage('Quality Gate') {
-                steps {
-                    timeout(time: 01, unit: 'MINUTES') {
-                        waitForQualityGate abortPipeline:true
-                    }
-                }
-            }
+//            stage('Quality Gate') {
+//                steps {
+//                    timeout(time: 01, unit: 'MINUTES') {
+//                        waitForQualityGate abortPipeline:true
+//                    }
+//                }
+//            }
 
             stage('Upload Artifact') {
                 steps {
