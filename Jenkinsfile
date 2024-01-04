@@ -22,6 +22,9 @@
             NEXUS_LOGIN = 'nexuslogin'
             SONARSERVER = 'sonarserver'
             SONARSCANNER = 'sonarscanner'
+            registryCredential = 'ecr:us-east-2:awscreds'
+            appRegistry = '943441234686.dkr.ecr.us-east-2.amazonaws.com/vprofileapp'
+            vprofieRegistry ='https://943441234686.dkr.ecr.us-east-2.amazonaws.com'
         }
 
         stages {
@@ -99,6 +102,16 @@
 
 
             }
+
+            stage('Build App Image') {
+                steps {
+                    script {
+                        dockerImage = docker.build( appRegistry + ":$BUILD_NUMBER", "Docker-files/app/multistage/")
+                    }
+                }
+            }
+
+
 
         }
         post{
