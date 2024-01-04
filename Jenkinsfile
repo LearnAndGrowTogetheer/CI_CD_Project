@@ -111,6 +111,17 @@
                 }
             }
 
+            stage('Upload App Image to ECR') {
+                steps {
+                    script {
+                        docker.withRegistry( vprofileRegistry, registryCredentials ) {
+                            dockerImage.push("$BUILD_NUMBER")
+                            dockerImage.push('latest')
+                        }
+                    }
+                }
+            }
+
 
 
         }
