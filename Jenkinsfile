@@ -25,6 +25,8 @@
             registryCredential = 'ecr:us-east-2:awscreds'
             appRegistry = '943441234686.dkr.ecr.us-east-2.amazonaws.com/vprofileapp'
             vprofileRegistry ='https://943441234686.dkr.ecr.us-east-2.amazonaws.com'
+            cluster = "vprofileappstage"
+            service = "vprostagesvc"
         }
 
         stages {
@@ -121,6 +123,17 @@
                     }
                 }
             }
+
+            stage('Deploy app to ECS Cluster') {
+                steps {
+                    withAWS(credentials: 'awscreds', region: 'us-east-2') {
+                        sh 'aws ecs update-service --cluster ${cluster} --service ${service} --force-new-deployment'
+                    }
+                }
+            }
+
+
+
 
 
 
